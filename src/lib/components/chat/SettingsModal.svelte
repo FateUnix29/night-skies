@@ -268,7 +268,7 @@
 				'aboutus',
 				'softwareinfo',
 				'timothyjaeryangbaek',
-				'openwebui',
+				'nightskies',
 				'release',
 				'updates',
 				'updateinfo',

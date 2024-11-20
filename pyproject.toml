@@ -2,7 +2,7 @@
 name = "night-skies"
 description = "Night Skies - A fork of Open WebUI"
 authors = [
-    { name = "Kalinite, Kyanite, Kanoite", email = "tim@openwebui.com" }
+    { name = "Kalinite, Kyanite, Kanoite", email = "tim@nightskies.com" }
 ]
 license = { file = "LICENSE" }
 dependencies = [
