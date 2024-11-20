@@ -11,11 +11,11 @@ from langchain.retrievers import ContextualCompressionRetriever, EnsembleRetriev
 from langchain_community.retrievers import BM25Retriever
 from langchain_core.documents import Document
 
-from open_webui.apps.retrieval.vector.connector import VECTOR_DB_CLIENT
-from open_webui.utils.misc import get_last_user_message
+from night_skies.apps.retrieval.vector.connector import VECTOR_DB_CLIENT
+from night_skies.utils.misc import get_last_user_message
 
-from open_webui.env import SRC_LOG_LEVELS
-from open_webui.config import DEFAULT_RAG_TEMPLATE
+from night_skies.env import SRC_LOG_LEVELS
+from night_skies.config import DEFAULT_RAG_TEMPLATE
 
 
 log = logging.getLogger(__name__)

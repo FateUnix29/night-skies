@@ -1,17 +1,17 @@
 # Open WebUI 👋
 
-![GitHub stars](https://img.shields.io/github/stars/open-webui/open-webui?style=social)
-![GitHub forks](https://img.shields.io/github/forks/open-webui/open-webui?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/open-webui/open-webui?style=social)
-![GitHub repo size](https://img.shields.io/github/repo-size/open-webui/open-webui)
-![GitHub language count](https://img.shields.io/github/languages/count/open-webui/open-webui)
-![GitHub top language](https://img.shields.io/github/languages/top/open-webui/open-webui)
-![GitHub last commit](https://img.shields.io/github/last-commit/open-webui/open-webui?color=red)
+![GitHub stars](https://img.shields.io/github/stars/night-skies/night-skies?style=social)
+![GitHub forks](https://img.shields.io/github/forks/night-skies/night-skies?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/night-skies/night-skies?style=social)
+![GitHub repo size](https://img.shields.io/github/repo-size/night-skies/night-skies)
+![GitHub language count](https://img.shields.io/github/languages/count/night-skies/night-skies)
+![GitHub top language](https://img.shields.io/github/languages/top/night-skies/night-skies)
+![GitHub last commit](https://img.shields.io/github/last-commit/night-skies/night-skies?color=red)
 ![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Follama-webui%2Follama-wbui&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)
 [![Discord](https://img.shields.io/badge/Discord-Open_WebUI-blue?logo=discord&logoColor=white)](https://discord.gg/5rJgQTnV4s)
 [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/tjbck)
 
-Open WebUI is an [extensible](https://github.com/open-webui/pipelines), feature-rich, and user-friendly self-hosted WebUI designed to operate entirely offline. It supports various LLM runners, including Ollama and OpenAI-compatible APIs. For more information, be sure to check out our [Open WebUI Documentation](https://docs.openwebui.com/).
+Open WebUI is an [extensible](https://github.com/night-skies/pipelines), feature-rich, and user-friendly self-hosted WebUI designed to operate entirely offline. It supports various LLM runners, including Ollama and OpenAI-compatible APIs. For more information, be sure to check out our [Open WebUI Documentation](https://docs.openwebui.com/).
 
 ![Open WebUI Demo](./demo.gif)
 
@@ -21,7 +21,7 @@ Open WebUI is an [extensible](https://github.com/open-webui/pipelines), feature-
 
 - 🤝 **Ollama/OpenAI API Integration**: Effortlessly integrate OpenAI-compatible APIs for versatile conversations alongside Ollama models. Customize the OpenAI API URL to link with **LMStudio, GroqCloud, Mistral, OpenRouter, and more**.
 
-- 🧩 **Pipelines, Open WebUI Plugin Support**: Seamlessly integrate custom logic and Python libraries into Open WebUI using [Pipelines Plugin Framework](https://github.com/open-webui/pipelines). Launch your Pipelines instance, set the OpenAI URL to the Pipelines URL, and explore endless possibilities. [Examples](https://github.com/open-webui/pipelines/tree/main/examples) include **Function Calling**, User **Rate Limiting** to control access, **Usage Monitoring** with tools like Langfuse, **Live Translation with LibreTranslate** for multilingual support, **Toxic Message Filtering** and much more.
+- 🧩 **Pipelines, Open WebUI Plugin Support**: Seamlessly integrate custom logic and Python libraries into Open WebUI using [Pipelines Plugin Framework](https://github.com/night-skies/pipelines). Launch your Pipelines instance, set the OpenAI URL to the Pipelines URL, and explore endless possibilities. [Examples](https://github.com/night-skies/pipelines/tree/main/examples) include **Function Calling**, User **Rate Limiting** to control access, **Usage Monitoring** with tools like Langfuse, **Live Translation with LibreTranslate** for multilingual support, **Toxic Message Filtering** and much more.
 
 - 📱 **Responsive Design**: Enjoy a seamless experience across Desktop PC, Laptop, and Mobile devices.
 
@@ -67,14 +67,14 @@ Open WebUI can be installed using pip, the Python package installer. Before proc
    Open your terminal and run the following command to install Open WebUI:
 
    ```bash
-   pip install open-webui
+   pip install night-skies
    ```
 
 2. **Running Open WebUI**:
    After installation, you can start Open WebUI by executing:
 
    ```bash
-   open-webui serve
+   night-skies serve
    ```
 
 This will start the Open WebUI server, which you can access at [http://localhost:8080](http://localhost:8080)
@@ -85,7 +85,7 @@ This will start the Open WebUI server, which you can access at [http://localhost
 > Please note that for certain Docker environments, additional configurations might be needed. If you encounter any connection issues, our detailed guide on [Open WebUI Documentation](https://docs.openwebui.com/) is ready to assist you.
 
 > [!WARNING]
-> When using Docker to install Open WebUI, make sure to include the `-v open-webui:/app/backend/data` in your Docker command. This step is crucial as it ensures your database is properly mounted and prevents any loss of data.
+> When using Docker to install Open WebUI, make sure to include the `-v night-skies:/app/backend/data` in your Docker command. This step is crucial as it ensures your database is properly mounted and prevents any loss of data.
 
 > [!TIP]  
 > If you wish to utilize Open WebUI with Ollama included or CUDA acceleration, we recommend utilizing our official images tagged with either `:cuda` or `:ollama`. To enable CUDA, you must install the [Nvidia CUDA container toolkit](https://docs.nvidia.com/dgx/nvidia-container-runtime-upgrade/) on your Linux/WSL system.
@@ -95,7 +95,7 @@ This will start the Open WebUI server, which you can access at [http://localhost
 - **If Ollama is on your computer**, use this command:
 
   ```bash
-  docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+  docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v night-skies:/app/backend/data --name night-skies --restart always ghcr.io/night-skies/night-skies:main
   ```
 
 - **If Ollama is on a Different Server**, use this command:
@@ -103,13 +103,13 @@ This will start the Open WebUI server, which you can access at [http://localhost
   To connect to Ollama on another server, change the `OLLAMA_BASE_URL` to the server's URL:
 
   ```bash
-  docker run -d -p 3000:8080 -e OLLAMA_BASE_URL=https://example.com -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+  docker run -d -p 3000:8080 -e OLLAMA_BASE_URL=https://example.com -v night-skies:/app/backend/data --name night-skies --restart always ghcr.io/night-skies/night-skies:main
   ```
 
 - **To run Open WebUI with Nvidia GPU support**, use this command:
 
   ```bash
-  docker run -d -p 3000:8080 --gpus all --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:cuda
+  docker run -d -p 3000:8080 --gpus all --add-host=host.docker.internal:host-gateway -v night-skies:/app/backend/data --name night-skies --restart always ghcr.io/night-skies/night-skies:cuda
   ```
 
 ### Installation for OpenAI API Usage Only
@@ -117,7 +117,7 @@ This will start the Open WebUI server, which you can access at [http://localhost
 - **If you're only using OpenAI API**, use this command:
 
   ```bash
-  docker run -d -p 3000:8080 -e OPENAI_API_KEY=your_secret_key -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+  docker run -d -p 3000:8080 -e OPENAI_API_KEY=your_secret_key -v night-skies:/app/backend/data --name night-skies --restart always ghcr.io/night-skies/night-skies:main
   ```
 
 ### Installing Open WebUI with Bundled Ollama Support
@@ -128,14 +128,14 @@ This installation method uses a single container image that bundles Open WebUI w
   Utilize GPU resources by running the following command:
 
   ```bash
-  docker run -d -p 3000:8080 --gpus=all -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama
+  docker run -d -p 3000:8080 --gpus=all -v ollama:/root/.ollama -v night-skies:/app/backend/data --name night-skies --restart always ghcr.io/night-skies/night-skies:ollama
   ```
 
 - **For CPU Only**:
   If you're not using a GPU, use this command instead:
 
   ```bash
-  docker run -d -p 3000:8080 -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama
+  docker run -d -p 3000:8080 -v ollama:/root/.ollama -v night-skies:/app/backend/data --name night-skies --restart always ghcr.io/night-skies/night-skies:ollama
   ```
 
 Both commands facilitate a built-in, hassle-free installation of both Open WebUI and Ollama, ensuring that you can get everything up and running swiftly.
@@ -157,7 +157,7 @@ If you're experiencing connection issues, it’s often due to the WebUI docker c
 **Example Docker Command**:
 
 ```bash
-docker run -d --network=host -v open-webui:/app/backend/data -e OLLAMA_BASE_URL=http://127.0.0.1:11434 --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+docker run -d --network=host -v night-skies:/app/backend/data -e OLLAMA_BASE_URL=http://127.0.0.1:11434 --name night-skies --restart always ghcr.io/night-skies/night-skies:main
 ```
 
 ### Keeping Your Docker Installation Up-to-Date
@@ -165,10 +165,10 @@ docker run -d --network=host -v open-webui:/app/backend/data -e OLLAMA_BASE_URL=
 In case you want to update your local Docker installation to the latest version, you can do it with [Watchtower](https://containrrr.dev/watchtower/):
 
 ```bash
-docker run --rm --volume /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --run-once open-webui
+docker run --rm --volume /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --run-once night-skies
 ```
 
-In the last part of the command, replace `open-webui` with your container name if it is different.
+In the last part of the command, replace `night-skies` with your container name if it is different.
 
 Check our Migration Guide available in our [Open WebUI Documentation](https://docs.openwebui.com/tutorials/migration/).
 
@@ -180,7 +180,7 @@ Check our Migration Guide available in our [Open WebUI Documentation](https://do
 If you want to try out the latest bleeding-edge features and are okay with occasional instability, you can use the `:dev` tag like this:
 
 ```bash
-docker run -d -p 3000:8080 -v open-webui:/app/backend/data --name open-webui --add-host=host.docker.internal:host-gateway --restart always ghcr.io/open-webui/open-webui:dev
+docker run -d -p 3000:8080 -v night-skies:/app/backend/data --name night-skies --add-host=host.docker.internal:host-gateway --restart always ghcr.io/night-skies/night-skies:dev
 ```
 
 ## What's Next? 🌟
@@ -198,11 +198,11 @@ If you have any questions, suggestions, or need assistance, please open an issue
 
 ## Star History
 
-<a href="https://star-history.com/#open-webui/open-webui&Date">
+<a href="https://star-history.com/#night-skies/night-skies&Date">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=open-webui/open-webui&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=open-webui/open-webui&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=open-webui/open-webui&type=Date" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=night-skies/night-skies&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=night-skies/night-skies&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=night-skies/night-skies&type=Date" />
   </picture>
 </a>
 

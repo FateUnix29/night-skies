@@ -5,10 +5,10 @@ import jwt
 from datetime import UTC, datetime, timedelta
 from typing import Optional, Union, List, Dict
 
-from open_webui.apps.webui.models.users import Users
+from night_skies.apps.webui.models.users import Users
 
-from open_webui.constants import ERROR_MESSAGES
-from open_webui.env import WEBUI_SECRET_KEY
+from night_skies.constants import ERROR_MESSAGES
+from night_skies.env import WEBUI_SECRET_KEY
 
 from fastapi import Depends, HTTPException, Request, Response, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer

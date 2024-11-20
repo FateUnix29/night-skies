@@ -2,12 +2,12 @@ import logging
 import uuid
 from typing import Optional
 
-from open_webui.apps.webui.internal.db import Base, get_db
-from open_webui.apps.webui.models.users import UserModel, Users
-from open_webui.env import SRC_LOG_LEVELS
+from night_skies.apps.webui.internal.db import Base, get_db
+from night_skies.apps.webui.models.users import UserModel, Users
+from night_skies.env import SRC_LOG_LEVELS
 from pydantic import BaseModel
 from sqlalchemy import Boolean, Column, String, Text
-from open_webui.utils.utils import verify_password
+from night_skies.utils.utils import verify_password
 
 log = logging.getLogger(__name__)
 log.setLevel(SRC_LOG_LEVELS["MODELS"])

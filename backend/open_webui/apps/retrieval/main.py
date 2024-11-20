@@ -17,30 +17,30 @@ from pydantic import BaseModel
 import tiktoken
 
 
-from open_webui.storage.provider import Storage
-from open_webui.apps.webui.models.knowledge import Knowledges
-from open_webui.apps.retrieval.vector.connector import VECTOR_DB_CLIENT
+from night_skies.storage.provider import Storage
+from night_skies.apps.webui.models.knowledge import Knowledges
+from night_skies.apps.retrieval.vector.connector import VECTOR_DB_CLIENT
 
 # Document loaders
-from open_webui.apps.retrieval.loaders.main import Loader
+from night_skies.apps.retrieval.loaders.main import Loader
 
 # Web search engines
-from open_webui.apps.retrieval.web.main import SearchResult
-from open_webui.apps.retrieval.web.utils import get_web_loader
-from open_webui.apps.retrieval.web.brave import search_brave
-from open_webui.apps.retrieval.web.duckduckgo import search_duckduckgo
-from open_webui.apps.retrieval.web.google_pse import search_google_pse
-from open_webui.apps.retrieval.web.jina_search import search_jina
-from open_webui.apps.retrieval.web.searchapi import search_searchapi
-from open_webui.apps.retrieval.web.searxng import search_searxng
-from open_webui.apps.retrieval.web.serper import search_serper
-from open_webui.apps.retrieval.web.serply import search_serply
-from open_webui.apps.retrieval.web.serpstack import search_serpstack
-from open_webui.apps.retrieval.web.tavily import search_tavily
-from open_webui.apps.retrieval.web.bing import search_bing
+from night_skies.apps.retrieval.web.main import SearchResult
+from night_skies.apps.retrieval.web.utils import get_web_loader
+from night_skies.apps.retrieval.web.brave import search_brave
+from night_skies.apps.retrieval.web.duckduckgo import search_duckduckgo
+from night_skies.apps.retrieval.web.google_pse import search_google_pse
+from night_skies.apps.retrieval.web.jina_search import search_jina
+from night_skies.apps.retrieval.web.searchapi import search_searchapi
+from night_skies.apps.retrieval.web.searxng import search_searxng
+from night_skies.apps.retrieval.web.serper import search_serper
+from night_skies.apps.retrieval.web.serply import search_serply
+from night_skies.apps.retrieval.web.serpstack import search_serpstack
+from night_skies.apps.retrieval.web.tavily import search_tavily
+from night_skies.apps.retrieval.web.bing import search_bing
 
 
-from open_webui.apps.retrieval.utils import (
+from night_skies.apps.retrieval.utils import (
     get_embedding_function,
     get_model_path,
     query_collection,
@@ -49,8 +49,8 @@ from open_webui.apps.retrieval.utils import (
     query_doc_with_hybrid_search,
 )
 
-from open_webui.apps.webui.models.files import Files
-from open_webui.config import (
+from night_skies.apps.webui.models.files import Files
+from night_skies.config import (
     BRAVE_SEARCH_API_KEY,
     TIKTOKEN_ENCODING_NAME,
     RAG_TEXT_SPLITTER,
@@ -105,19 +105,19 @@ from open_webui.config import (
     DEFAULT_LOCALE,
     AppConfig,
 )
-from open_webui.constants import ERROR_MESSAGES
-from open_webui.env import (
+from night_skies.constants import ERROR_MESSAGES
+from night_skies.env import (
     SRC_LOG_LEVELS,
     DEVICE_TYPE,
     DOCKER,
 )
-from open_webui.utils.misc import (
+from night_skies.utils.misc import (
     calculate_sha256,
     calculate_sha256_string,
     extract_folders_after_data_docs,
     sanitize_filename,
 )
-from open_webui.utils.utils import get_admin_user, get_verified_user
+from night_skies.utils.utils import get_admin_user, get_verified_user
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter, TokenTextSplitter
 from langchain_community.document_loaders import (
@@ -224,7 +224,7 @@ def update_reranking_model(
     if reranking_model:
         if any(model in reranking_model for model in ["jinaai/jina-colbert-v2"]):
             try:
-                from open_webui.apps.retrieval.models.colbert import ColBERT
+                from night_skies.apps.retrieval.models.colbert import ColBERT
 
                 app.state.sentence_transformer_rf = ColBERT(
                     get_model_path(reranking_model, auto_update),

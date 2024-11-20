@@ -6,8 +6,8 @@ import shutil
 
 from typing import BinaryIO, Tuple, Optional, Union
 
-from open_webui.constants import ERROR_MESSAGES
-from open_webui.config import (
+from night_skies.constants import ERROR_MESSAGES
+from night_skies.config import (
     STORAGE_PROVIDER,
     S3_ACCESS_KEY_ID,
     S3_SECRET_ACCESS_KEY,

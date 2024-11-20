@@ -7,8 +7,8 @@ from typing import Literal, Optional, overload
 
 import aiohttp
 import requests
-from open_webui.apps.webui.models.models import Models
-from open_webui.config import (
+from night_skies.apps.webui.models.models import Models
+from night_skies.config import (
     CACHE_DIR,
     CORS_ALLOW_ORIGIN,
     ENABLE_OPENAI_API,
@@ -17,27 +17,27 @@ from open_webui.config import (
     OPENAI_API_CONFIGS,
     AppConfig,
 )
-from open_webui.env import (
+from night_skies.env import (
     AIOHTTP_CLIENT_TIMEOUT,
     AIOHTTP_CLIENT_TIMEOUT_OPENAI_MODEL_LIST,
     ENABLE_FORWARD_USER_INFO_HEADERS,
 )
 
-from open_webui.constants import ERROR_MESSAGES
-from open_webui.env import ENV, SRC_LOG_LEVELS
+from night_skies.constants import ERROR_MESSAGES
+from night_skies.env import ENV, SRC_LOG_LEVELS
 from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, StreamingResponse
 from pydantic import BaseModel
 from starlette.background import BackgroundTask
 
-from open_webui.utils.payload import (
+from night_skies.utils.payload import (
     apply_model_params_to_body_openai,
     apply_model_system_prompt_to_body,
 )
 
-from open_webui.utils.utils import get_admin_user, get_verified_user
-from open_webui.utils.access_control import has_access
+from night_skies.utils.utils import get_admin_user, get_verified_user
+from night_skies.utils.access_control import has_access
 
 
 log = logging.getLogger(__name__)
@@ -147,10 +147,10 @@ async def speech(request: Request, user=Depends(get_verified_user)):
             headers["HTTP-Referer"] = "https://openwebui.com/"
             headers["X-Title"] = "Open WebUI"
         if ENABLE_FORWARD_USER_INFO_HEADERS:
-            headers["X-OpenWebUI-User-Name"] = user.name
-            headers["X-OpenWebUI-User-Id"] = user.id
-            headers["X-OpenWebUI-User-Email"] = user.email
-            headers["X-OpenWebUI-User-Role"] = user.role
+            headers["X-NightSkies-User-Name"] = user.name
+            headers["X-NightSkies-User-Id"] = user.id
+            headers["X-NightSkies-User-Email"] = user.email
+            headers["X-NightSkies-User-Role"] = user.role
         r = None
         try:
             r = requests.post(
@@ -360,10 +360,10 @@ async def get_models(url_idx: Optional[int] = None, user=Depends(get_verified_us
         headers["Content-Type"] = "application/json"
 
         if ENABLE_FORWARD_USER_INFO_HEADERS:
-            headers["X-OpenWebUI-User-Name"] = user.name
-            headers["X-OpenWebUI-User-Id"] = user.id
-            headers["X-OpenWebUI-User-Email"] = user.email
-            headers["X-OpenWebUI-User-Role"] = user.role
+            headers["X-NightSkies-User-Name"] = user.name
+            headers["X-NightSkies-User-Id"] = user.id
+            headers["X-NightSkies-User-Email"] = user.email
+            headers["X-NightSkies-User-Role"] = user.role
 
         r = None
 
@@ -586,10 +586,10 @@ async def generate_chat_completion(
         headers["HTTP-Referer"] = "https://openwebui.com/"
         headers["X-Title"] = "Open WebUI"
     if ENABLE_FORWARD_USER_INFO_HEADERS:
-        headers["X-OpenWebUI-User-Name"] = user.name
-        headers["X-OpenWebUI-User-Id"] = user.id
-        headers["X-OpenWebUI-User-Email"] = user.email
-        headers["X-OpenWebUI-User-Role"] = user.role
+        headers["X-NightSkies-User-Name"] = user.name
+        headers["X-NightSkies-User-Id"] = user.id
+        headers["X-NightSkies-User-Email"] = user.email
+        headers["X-NightSkies-User-Role"] = user.role
 
     r = None
     session = None
@@ -659,10 +659,10 @@ async def proxy(path: str, request: Request, user=Depends(get_verified_user)):
     headers["Authorization"] = f"Bearer {key}"
     headers["Content-Type"] = "application/json"
     if ENABLE_FORWARD_USER_INFO_HEADERS:
-        headers["X-OpenWebUI-User-Name"] = user.name
-        headers["X-OpenWebUI-User-Id"] = user.id
-        headers["X-OpenWebUI-User-Email"] = user.email
-        headers["X-OpenWebUI-User-Role"] = user.role
+        headers["X-NightSkies-User-Name"] = user.name
+        headers["X-NightSkies-User-Id"] = user.id
+        headers["X-NightSkies-User-Email"] = user.email
+        headers["X-NightSkies-User-Role"] = user.role
 
     r = None
     session = None

@@ -10,8 +10,8 @@ from urllib.parse import urlparse
 import chromadb
 import requests
 import yaml
-from open_webui.apps.webui.internal.db import Base, get_db
-from open_webui.env import (
+from night_skies.apps.webui.internal.db import Base, get_db
+from night_skies.env import (
     OPEN_WEBUI_DIR,
     DATA_DIR,
     ENV,
@@ -603,7 +603,7 @@ if ENV == "prod":
         else:
             OLLAMA_BASE_URL = "http://host.docker.internal:11434"
     elif K8S_FLAG:
-        OLLAMA_BASE_URL = "http://ollama-service.open-webui.svc.cluster.local:11434"
+        OLLAMA_BASE_URL = "http://ollama-service.night-skies.svc.cluster.local:11434"
 
 
 OLLAMA_BASE_URLS = os.environ.get("OLLAMA_BASE_URLS", "")

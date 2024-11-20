@@ -4,7 +4,7 @@ from datetime import datetime
 from typing import Optional
 
 
-from open_webui.utils.misc import get_last_user_message, get_messages_content
+from night_skies.utils.misc import get_last_user_message, get_messages_content
 
 
 def prompt_template(

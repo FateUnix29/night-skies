@@ -2,20 +2,20 @@ import os
 from pathlib import Path
 from typing import Optional
 
-from open_webui.apps.webui.models.tools import (
+from night_skies.apps.webui.models.tools import (
     ToolForm,
     ToolModel,
     ToolResponse,
     ToolUserResponse,
     Tools,
 )
-from open_webui.apps.webui.utils import load_tools_module_by_id, replace_imports
-from open_webui.config import CACHE_DIR, DATA_DIR
-from open_webui.constants import ERROR_MESSAGES
+from night_skies.apps.webui.utils import load_tools_module_by_id, replace_imports
+from night_skies.config import CACHE_DIR, DATA_DIR
+from night_skies.constants import ERROR_MESSAGES
 from fastapi import APIRouter, Depends, HTTPException, Request, status
-from open_webui.utils.tools import get_tools_specs
-from open_webui.utils.utils import get_admin_user, get_verified_user
-from open_webui.utils.access_control import has_access, has_permission
+from night_skies.utils.tools import get_tools_specs
+from night_skies.utils.utils import get_admin_user, get_verified_user
+from night_skies.utils.access_control import has_access, has_permission
 
 
 router = APIRouter()

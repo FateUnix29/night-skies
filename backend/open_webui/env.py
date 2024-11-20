@@ -9,7 +9,7 @@ from pathlib import Path
 
 import markdown
 from bs4 import BeautifulSoup
-from open_webui.constants import ERROR_MESSAGES
+from night_skies.constants import ERROR_MESSAGES
 
 ####################################
 # Load .env file
@@ -117,7 +117,7 @@ ENV = os.environ.get("ENV", "dev")
 FROM_INIT_PY = os.environ.get("FROM_INIT_PY", "False").lower() == "true"
 
 if FROM_INIT_PY:
-    PACKAGE_DATA = {"version": importlib.metadata.version("open-webui")}
+    PACKAGE_DATA = {"version": importlib.metadata.version("night-skies")}
 else:
     try:
         PACKAGE_DATA = json.loads((BASE_DIR / "package.json").read_text())
@@ -153,7 +153,7 @@ try:
         changelog_content = file.read()
 
 except Exception:
-    changelog_content = (pkgutil.get_data("open_webui", "CHANGELOG.md") or b"").decode()
+    changelog_content = (pkgutil.get_data("night_skies", "CHANGELOG.md") or b"").decode()
 
 
 # Convert markdown content to HTML
@@ -231,7 +231,7 @@ if FROM_INIT_PY:
                 shutil.copy2(item, dest)
 
         # Zip the data directory
-        shutil.make_archive(DATA_DIR.parent / "open_webui_data", "zip", DATA_DIR)
+        shutil.make_archive(DATA_DIR.parent / "night_skies_data", "zip", DATA_DIR)
 
         # Remove the old data directory
         shutil.rmtree(DATA_DIR)

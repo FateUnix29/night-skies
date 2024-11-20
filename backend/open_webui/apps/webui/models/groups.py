@@ -4,10 +4,10 @@ import time
 from typing import Optional
 import uuid
 
-from open_webui.apps.webui.internal.db import Base, get_db
-from open_webui.env import SRC_LOG_LEVELS
+from night_skies.apps.webui.internal.db import Base, get_db
+from night_skies.env import SRC_LOG_LEVELS
 
-from open_webui.apps.webui.models.files import FileMetadataResponse
+from night_skies.apps.webui.models.files import FileMetadataResponse
 
 
 from pydantic import BaseModel, ConfigDict

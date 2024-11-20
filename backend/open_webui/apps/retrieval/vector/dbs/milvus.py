@@ -4,15 +4,15 @@ import json
 
 from typing import Optional
 
-from open_webui.apps.retrieval.vector.main import VectorItem, SearchResult, GetResult
-from open_webui.config import (
+from night_skies.apps.retrieval.vector.main import VectorItem, SearchResult, GetResult
+from night_skies.config import (
     MILVUS_URI,
 )
 
 
 class MilvusClient:
     def __init__(self):
-        self.collection_prefix = "open_webui"
+        self.collection_prefix = "night_skies"
         self.client = Client(uri=MILVUS_URI)
 
     def _result_to_get_result(self, result) -> GetResult:

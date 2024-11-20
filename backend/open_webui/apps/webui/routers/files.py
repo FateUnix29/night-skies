@@ -6,26 +6,26 @@ from typing import Optional
 from pydantic import BaseModel
 import mimetypes
 
-from open_webui.storage.provider import Storage
+from night_skies.storage.provider import Storage
 
-from open_webui.apps.webui.models.files import (
+from night_skies.apps.webui.models.files import (
     FileForm,
     FileModel,
     FileModelResponse,
     Files,
 )
-from open_webui.apps.retrieval.main import process_file, ProcessFileForm
+from night_skies.apps.retrieval.main import process_file, ProcessFileForm
 
-from open_webui.config import UPLOAD_DIR
-from open_webui.env import SRC_LOG_LEVELS
-from open_webui.constants import ERROR_MESSAGES
+from night_skies.config import UPLOAD_DIR
+from night_skies.env import SRC_LOG_LEVELS
+from night_skies.constants import ERROR_MESSAGES
 
 
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
 from fastapi.responses import FileResponse, StreamingResponse
 
 
-from open_webui.utils.utils import get_admin_user, get_verified_user
+from night_skies.utils.utils import get_admin_user, get_verified_user
 
 log = logging.getLogger(__name__)
 log.setLevel(SRC_LOG_LEVELS["MODELS"])

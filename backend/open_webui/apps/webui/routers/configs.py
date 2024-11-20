@@ -1,10 +1,10 @@
-from open_webui.config import BannerModel
+from night_skies.config import BannerModel
 from fastapi import APIRouter, Depends, Request
 from pydantic import BaseModel
-from open_webui.utils.utils import get_admin_user, get_verified_user
+from night_skies.utils.utils import get_admin_user, get_verified_user
 
 
-from open_webui.config import get_config, save_config
+from night_skies.config import get_config, save_config
 
 router = APIRouter()
 

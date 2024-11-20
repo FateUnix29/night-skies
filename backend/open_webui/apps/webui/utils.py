@@ -6,8 +6,8 @@ from importlib import util
 import types
 import tempfile
 
-from open_webui.apps.webui.models.functions import Functions
-from open_webui.apps.webui.models.tools import Tools
+from night_skies.apps.webui.models.functions import Functions
+from night_skies.apps.webui.models.tools import Tools
 
 
 def extract_frontmatter(content):
@@ -51,10 +51,10 @@ def replace_imports(content):
     Replace the import paths in the content.
     """
     replacements = {
-        "from utils": "from open_webui.utils",
-        "from apps": "from open_webui.apps",
-        "from main": "from open_webui.main",
-        "from config": "from open_webui.config",
+        "from utils": "from night_skies.utils",
+        "from apps": "from night_skies.apps",
+        "from main": "from night_skies.main",
+        "from config": "from night_skies.config",
     }
 
     for old, new in replacements.items():

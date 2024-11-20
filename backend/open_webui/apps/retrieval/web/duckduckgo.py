@@ -1,9 +1,9 @@
 import logging
 from typing import Optional
 
-from open_webui.apps.retrieval.web.main import SearchResult, get_filtered_results
+from night_skies.apps.retrieval.web.main import SearchResult, get_filtered_results
 from duckduckgo_search import DDGS
-from open_webui.env import SRC_LOG_LEVELS
+from night_skies.env import SRC_LOG_LEVELS
 
 log = logging.getLogger(__name__)
 log.setLevel(SRC_LOG_LEVELS["RAG"])

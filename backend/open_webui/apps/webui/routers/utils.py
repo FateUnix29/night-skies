@@ -1,15 +1,15 @@
 import black
 import markdown
 
-from open_webui.apps.webui.models.chats import ChatTitleMessagesForm
-from open_webui.config import DATA_DIR, ENABLE_ADMIN_EXPORT
-from open_webui.constants import ERROR_MESSAGES
+from night_skies.apps.webui.models.chats import ChatTitleMessagesForm
+from night_skies.config import DATA_DIR, ENABLE_ADMIN_EXPORT
+from night_skies.constants import ERROR_MESSAGES
 from fastapi import APIRouter, Depends, HTTPException, Response, status
 from pydantic import BaseModel
 from starlette.responses import FileResponse
-from open_webui.utils.misc import get_gravatar_url
-from open_webui.utils.pdf_generator import PDFGenerator
-from open_webui.utils.utils import get_admin_user
+from night_skies.utils.misc import get_gravatar_url
+from night_skies.utils.pdf_generator import PDFGenerator
+from night_skies.utils.utils import get_admin_user
 
 router = APIRouter()
 
@@ -76,7 +76,7 @@ async def download_db(user=Depends(get_admin_user)):
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail=ERROR_MESSAGES.ACCESS_PROHIBITED,
         )
-    from open_webui.apps.webui.internal.db import engine
+    from night_skies.apps.webui.internal.db import engine
 
     if engine.name != "sqlite":
         raise HTTPException(

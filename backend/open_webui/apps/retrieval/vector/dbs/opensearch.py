@@ -1,8 +1,8 @@
 from opensearchpy import OpenSearch
 from typing import Optional
 
-from open_webui.apps.rag.vector.main import VectorItem, SearchResult, GetResult
-from open_webui.config import (
+from night_skies.apps.rag.vector.main import VectorItem, SearchResult, GetResult
+from night_skies.config import (
     OPENSEARCH_URI,
     OPENSEARCH_SSL,
     OPENSEARCH_CERT_VERIFY,
@@ -13,7 +13,7 @@ from open_webui.config import (
 
 class OpenSearchClient:
     def __init__(self):
-        self.index_prefix = "open_webui"
+        self.index_prefix = "night_skies"
         self.client = OpenSearch(
             hosts=[OPENSEARCH_URI],
             use_ssl=OPENSEARCH_SSL,

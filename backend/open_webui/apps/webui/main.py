@@ -4,10 +4,10 @@ import logging
 import time
 from typing import AsyncGenerator, Generator, Iterator
 
-from open_webui.apps.socket.main import get_event_call, get_event_emitter
-from open_webui.apps.webui.models.functions import Functions
-from open_webui.apps.webui.models.models import Models
-from open_webui.apps.webui.routers import (
+from night_skies.apps.socket.main import get_event_call, get_event_emitter
+from night_skies.apps.webui.models.functions import Functions
+from night_skies.apps.webui.models.models import Models
+from night_skies.apps.webui.routers import (
     auths,
     chats,
     folders,
@@ -24,8 +24,8 @@ from open_webui.apps.webui.routers import (
     users,
     utils,
 )
-from open_webui.apps.webui.utils import load_function_module_by_id
-from open_webui.config import (
+from night_skies.apps.webui.utils import load_function_module_by_id
+from night_skies.config import (
     ADMIN_EMAIL,
     CORS_ALLOW_ORIGIN,
     DEFAULT_MODELS,
@@ -66,7 +66,7 @@ from open_webui.config import (
     LDAP_CIPHERS,
     AppConfig,
 )
-from open_webui.env import (
+from night_skies.env import (
     ENV,
     WEBUI_AUTH_TRUSTED_EMAIL_HEADER,
     WEBUI_AUTH_TRUSTED_NAME_HEADER,
@@ -75,17 +75,17 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
-from open_webui.utils.misc import (
+from night_skies.utils.misc import (
     openai_chat_chunk_message_template,
     openai_chat_completion_message_template,
 )
-from open_webui.utils.payload import (
+from night_skies.utils.payload import (
     apply_model_params_to_body_openai,
     apply_model_system_prompt_to_body,
 )
 
 
-from open_webui.utils.tools import get_tools
+from night_skies.utils.tools import get_tools
 
 app = FastAPI(
     docs_url="/docs" if ENV == "dev" else None,

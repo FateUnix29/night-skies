@@ -34,39 +34,39 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.middleware.sessions import SessionMiddleware
 from starlette.responses import Response, StreamingResponse
 
-from open_webui.apps.audio.main import app as audio_app
-from open_webui.apps.images.main import app as images_app
-from open_webui.apps.ollama.main import (
+from night_skies.apps.audio.main import app as audio_app
+from night_skies.apps.images.main import app as images_app
+from night_skies.apps.ollama.main import (
     app as ollama_app,
     get_all_models as get_ollama_models,
     generate_chat_completion as generate_ollama_chat_completion,
     GenerateChatCompletionForm,
 )
-from open_webui.apps.openai.main import (
+from night_skies.apps.openai.main import (
     app as openai_app,
     generate_chat_completion as generate_openai_chat_completion,
     get_all_models as get_openai_models,
     get_all_models_responses as get_openai_models_responses,
 )
-from open_webui.apps.retrieval.main import app as retrieval_app
-from open_webui.apps.retrieval.utils import get_rag_context, rag_template
-from open_webui.apps.socket.main import (
+from night_skies.apps.retrieval.main import app as retrieval_app
+from night_skies.apps.retrieval.utils import get_rag_context, rag_template
+from night_skies.apps.socket.main import (
     app as socket_app,
     periodic_usage_pool_cleanup,
     get_event_call,
     get_event_emitter,
 )
-from open_webui.apps.webui.internal.db import Session
-from open_webui.apps.webui.main import (
+from night_skies.apps.webui.internal.db import Session
+from night_skies.apps.webui.main import (
     app as webui_app,
     generate_function_chat_completion,
-    get_all_models as get_open_webui_models,
+    get_all_models as get_night_skies_models,
 )
-from open_webui.apps.webui.models.functions import Functions
-from open_webui.apps.webui.models.models import Models
-from open_webui.apps.webui.models.users import UserModel, Users
-from open_webui.apps.webui.utils import load_function_module_by_id
-from open_webui.config import (
+from night_skies.apps.webui.models.functions import Functions
+from night_skies.apps.webui.models.models import Models
+from night_skies.apps.webui.models.users import UserModel, Users
+from night_skies.apps.webui.utils import load_function_module_by_id
+from night_skies.config import (
     CACHE_DIR,
     CORS_ALLOW_ORIGIN,
     DEFAULT_LOCALE,
@@ -94,8 +94,8 @@ from open_webui.config import (
     AppConfig,
     reset_config,
 )
-from open_webui.constants import TASKS
-from open_webui.env import (
+from night_skies.constants import TASKS
+from night_skies.env import (
     CHANGELOG,
     GLOBAL_LOG_LEVEL,
     SAFE_MODE,
@@ -109,19 +109,19 @@ from open_webui.env import (
     RESET_CONFIG_ON_START,
     OFFLINE_MODE,
 )
-from open_webui.utils.misc import (
+from night_skies.utils.misc import (
     add_or_update_system_message,
     get_last_user_message,
     prepend_to_first_user_message_content,
 )
-from open_webui.utils.oauth import oauth_manager
-from open_webui.utils.payload import convert_payload_openai_to_ollama
-from open_webui.utils.response import (
+from night_skies.utils.oauth import oauth_manager
+from night_skies.utils.payload import convert_payload_openai_to_ollama
+from night_skies.utils.response import (
     convert_response_ollama_to_openai,
     convert_streaming_response_ollama_to_openai,
 )
-from open_webui.utils.security_headers import SecurityHeadersMiddleware
-from open_webui.utils.task import (
+from night_skies.utils.security_headers import SecurityHeadersMiddleware
+from night_skies.utils.task import (
     moa_response_generation_template,
     tags_generation_template,
     query_generation_template,
@@ -129,15 +129,15 @@ from open_webui.utils.task import (
     title_generation_template,
     tools_function_calling_generation_template,
 )
-from open_webui.utils.tools import get_tools
-from open_webui.utils.utils import (
+from night_skies.utils.tools import get_tools
+from night_skies.utils.utils import (
     decode_token,
     get_admin_user,
     get_current_user,
     get_http_authorization_cred,
     get_verified_user,
 )
-from open_webui.utils.access_control import has_access
+from night_skies.utils.access_control import has_access
 
 if SAFE_MODE:
     print("SAFE MODE ENABLED")
@@ -171,7 +171,7 @@ print(
 
 v{VERSION} - building the best open-source AI user interface.
 {f"Commit: {WEBUI_BUILD_HASH}" if WEBUI_BUILD_HASH != "dev-build" else ""}
-https://github.com/open-webui/open-webui
+https://github.com/night-skies/night-skies
 """
 )
 
@@ -987,7 +987,7 @@ webui_app.state.EMBEDDING_FUNCTION = retrieval_app.state.EMBEDDING_FUNCTION
 
 
 async def get_all_base_models():
-    open_webui_models = []
+    night_skies_models = []
     openai_models = []
     ollama_models = []
 
@@ -1009,9 +1009,9 @@ async def get_all_base_models():
             for model in ollama_models["models"]
         ]
 
-    open_webui_models = await get_open_webui_models()
+    night_skies_models = await get_night_skies_models()
 
-    models = open_webui_models + openai_models + ollama_models
+    models = night_skies_models + openai_models + ollama_models
     return models
 
 
@@ -2514,7 +2514,7 @@ async def get_app_latest_release_version():
         timeout = aiohttp.ClientTimeout(total=1)
         async with aiohttp.ClientSession(timeout=timeout, trust_env=True) as session:
             async with session.get(
-                "https://api.github.com/repos/open-webui/open-webui/releases/latest"
+                "https://api.github.com/repos/night-skies/night-skies/releases/latest"
             ) as response:
                 response.raise_for_status()
                 data = await response.json()

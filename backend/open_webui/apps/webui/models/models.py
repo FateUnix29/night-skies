@@ -2,10 +2,10 @@ import logging
 import time
 from typing import Optional
 
-from open_webui.apps.webui.internal.db import Base, JSONField, get_db
-from open_webui.env import SRC_LOG_LEVELS
+from night_skies.apps.webui.internal.db import Base, JSONField, get_db
+from night_skies.env import SRC_LOG_LEVELS
 
-from open_webui.apps.webui.models.users import Users, UserResponse
+from night_skies.apps.webui.models.users import Users, UserResponse
 
 
 from pydantic import BaseModel, ConfigDict
@@ -15,7 +15,7 @@ from sqlalchemy.dialects import postgresql, sqlite
 from sqlalchemy import BigInteger, Column, Text, JSON, Boolean
 
 
-from open_webui.utils.access_control import has_access
+from night_skies.utils.access_control import has_access
 
 
 log = logging.getLogger(__name__)

@@ -8,16 +8,16 @@ services:
     restart: unless-stopped
     image: ollama/ollama:${OLLAMA_DOCKER_TAG-latest}
 
-  open-webui:
+  night-skies:
     build:
       context: .
       args:
         OLLAMA_BASE_URL: '/ollama'
       dockerfile: Dockerfile
-    image: ghcr.io/open-webui/open-webui:${WEBUI_DOCKER_TAG-main}
-    container_name: open-webui
+    image: ghcr.io/night-skies/night-skies:${WEBUI_DOCKER_TAG-main}
+    container_name: night-skies
     volumes:
-      - open-webui:/app/backend/data
+      - night-skies:/app/backend/data
     depends_on:
       - ollama
     ports:
@@ -31,4 +31,4 @@ services:
 
 volumes:
   ollama: {}
-  open-webui: {}
+  night-skies: {}

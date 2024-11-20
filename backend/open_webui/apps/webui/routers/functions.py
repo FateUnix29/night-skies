@@ -2,17 +2,17 @@ import os
 from pathlib import Path
 from typing import Optional
 
-from open_webui.apps.webui.models.functions import (
+from night_skies.apps.webui.models.functions import (
     FunctionForm,
     FunctionModel,
     FunctionResponse,
     Functions,
 )
-from open_webui.apps.webui.utils import load_function_module_by_id, replace_imports
-from open_webui.config import CACHE_DIR
-from open_webui.constants import ERROR_MESSAGES
+from night_skies.apps.webui.utils import load_function_module_by_id, replace_imports
+from night_skies.config import CACHE_DIR
+from night_skies.constants import ERROR_MESSAGES
 from fastapi import APIRouter, Depends, HTTPException, Request, status
-from open_webui.utils.utils import get_admin_user, get_verified_user
+from night_skies.utils.utils import get_admin_user, get_verified_user
 
 router = APIRouter()
 

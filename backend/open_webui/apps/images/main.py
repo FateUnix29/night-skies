@@ -9,12 +9,12 @@ from pathlib import Path
 from typing import Optional
 
 import requests
-from open_webui.apps.images.utils.comfyui import (
+from night_skies.apps.images.utils.comfyui import (
     ComfyUIGenerateImageForm,
     ComfyUIWorkflow,
     comfyui_generate_image,
 )
-from open_webui.config import (
+from night_skies.config import (
     AUTOMATIC1111_API_AUTH,
     AUTOMATIC1111_BASE_URL,
     AUTOMATIC1111_CFG_SCALE,
@@ -34,13 +34,13 @@ from open_webui.config import (
     IMAGES_OPENAI_API_KEY,
     AppConfig,
 )
-from open_webui.constants import ERROR_MESSAGES
-from open_webui.env import ENV, SRC_LOG_LEVELS, ENABLE_FORWARD_USER_INFO_HEADERS
+from night_skies.constants import ERROR_MESSAGES
+from night_skies.env import ENV, SRC_LOG_LEVELS, ENABLE_FORWARD_USER_INFO_HEADERS
 
 from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from open_webui.utils.utils import get_admin_user, get_verified_user
+from night_skies.utils.utils import get_admin_user, get_verified_user
 
 log = logging.getLogger(__name__)
 log.setLevel(SRC_LOG_LEVELS["IMAGES"])
@@ -463,10 +463,10 @@ async def image_generations(
             headers["Content-Type"] = "application/json"
 
             if ENABLE_FORWARD_USER_INFO_HEADERS:
-                headers["X-OpenWebUI-User-Name"] = user.name
-                headers["X-OpenWebUI-User-Id"] = user.id
-                headers["X-OpenWebUI-User-Email"] = user.email
-                headers["X-OpenWebUI-User-Role"] = user.role
+                headers["X-NightSkies-User-Name"] = user.name
+                headers["X-NightSkies-User-Id"] = user.id
+                headers["X-NightSkies-User-Email"] = user.email
+                headers["X-NightSkies-User-Role"] = user.role
 
             data = {
                 "model": (

@@ -4,23 +4,23 @@ from pydantic import BaseModel
 from fastapi import APIRouter, Depends, HTTPException, status, Request
 import logging
 
-from open_webui.apps.webui.models.knowledge import (
+from night_skies.apps.webui.models.knowledge import (
     Knowledges,
     KnowledgeForm,
     KnowledgeResponse,
     KnowledgeUserResponse,
 )
-from open_webui.apps.webui.models.files import Files, FileModel
-from open_webui.apps.retrieval.vector.connector import VECTOR_DB_CLIENT
-from open_webui.apps.retrieval.main import process_file, ProcessFileForm
+from night_skies.apps.webui.models.files import Files, FileModel
+from night_skies.apps.retrieval.vector.connector import VECTOR_DB_CLIENT
+from night_skies.apps.retrieval.main import process_file, ProcessFileForm
 
 
-from open_webui.constants import ERROR_MESSAGES
-from open_webui.utils.utils import get_admin_user, get_verified_user
-from open_webui.utils.access_control import has_access, has_permission
+from night_skies.constants import ERROR_MESSAGES
+from night_skies.utils.utils import get_admin_user, get_verified_user
+from night_skies.utils.access_control import has_access, has_permission
 
 
-from open_webui.env import SRC_LOG_LEVELS
+from night_skies.env import SRC_LOG_LEVELS
 
 
 log = logging.getLogger(__name__)

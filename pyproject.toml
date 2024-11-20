@@ -116,7 +116,7 @@ classifiers = [
 ]
 
 [project.scripts]
-open-webui = "open_webui:app"
+night-skies = "night-skies:app"
 
 [build-system]
 requires = ["hatchling"]
@@ -148,4 +148,4 @@ exclude = [
     "webui.db",
     "chroma.sqlite3",
 ]
-force-include = { "CHANGELOG.md" = "open_webui/CHANGELOG.md", build = "open_webui/frontend" }
+force-include = { "CHANGELOG.md" = "night_skies/CHANGELOG.md", build = "night_skies/frontend" }

@@ -2,8 +2,8 @@ import json
 import logging
 
 import requests
-from open_webui.config import WEBUI_FAVICON_URL, WEBUI_NAME
-from open_webui.env import SRC_LOG_LEVELS, VERSION
+from night_skies.config import WEBUI_FAVICON_URL, WEBUI_NAME
+from night_skies.env import SRC_LOG_LEVELS, VERSION
 
 log = logging.getLogger(__name__)
 log.setLevel(SRC_LOG_LEVELS["WEBHOOK"])

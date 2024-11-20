@@ -6,16 +6,16 @@ import logging
 import sys
 import time
 
-from open_webui.apps.webui.models.users import Users
-from open_webui.env import (
+from night_skies.apps.webui.models.users import Users
+from night_skies.env import (
     ENABLE_WEBSOCKET_SUPPORT,
     WEBSOCKET_MANAGER,
     WEBSOCKET_REDIS_URL,
 )
-from open_webui.utils.utils import decode_token
-from open_webui.apps.socket.utils import RedisDict
+from night_skies.utils.utils import decode_token
+from night_skies.apps.socket.utils import RedisDict
 
-from open_webui.env import (
+from night_skies.env import (
     GLOBAL_LOG_LEVEL,
     SRC_LOG_LEVELS,
 )
@@ -53,9 +53,9 @@ else:
 # Dictionary to maintain the user pool
 
 if WEBSOCKET_MANAGER == "redis":
-    SESSION_POOL = RedisDict("open-webui:session_pool", redis_url=WEBSOCKET_REDIS_URL)
-    USER_POOL = RedisDict("open-webui:user_pool", redis_url=WEBSOCKET_REDIS_URL)
-    USAGE_POOL = RedisDict("open-webui:usage_pool", redis_url=WEBSOCKET_REDIS_URL)
+    SESSION_POOL = RedisDict("night-skies:session_pool", redis_url=WEBSOCKET_REDIS_URL)
+    USER_POOL = RedisDict("night-skies:user_pool", redis_url=WEBSOCKET_REDIS_URL)
+    USAGE_POOL = RedisDict("night-skies:usage_pool", redis_url=WEBSOCKET_REDIS_URL)
 else:
     SESSION_POOL = {}
     USER_POOL = {}

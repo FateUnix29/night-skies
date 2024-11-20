@@ -9,9 +9,9 @@ from langchain_community.document_loaders import (
 from langchain_core.documents import Document
 
 
-from open_webui.constants import ERROR_MESSAGES
-from open_webui.config import ENABLE_RAG_LOCAL_WEB_FETCH
-from open_webui.env import SRC_LOG_LEVELS
+from night_skies.constants import ERROR_MESSAGES
+from night_skies.config import ENABLE_RAG_LOCAL_WEB_FETCH
+from night_skies.env import SRC_LOG_LEVELS
 
 import logging
 

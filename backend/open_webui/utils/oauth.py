@@ -12,9 +12,9 @@ from fastapi import (
 )
 from starlette.responses import RedirectResponse
 
-from open_webui.apps.webui.models.auths import Auths
-from open_webui.apps.webui.models.users import Users
-from open_webui.config import (
+from night_skies.apps.webui.models.auths import Auths
+from night_skies.apps.webui.models.users import Users
+from night_skies.config import (
     DEFAULT_USER_ROLE,
     ENABLE_OAUTH_SIGNUP,
     OAUTH_MERGE_ACCOUNTS_BY_EMAIL,
@@ -30,11 +30,11 @@ from open_webui.config import (
     JWT_EXPIRES_IN,
     AppConfig,
 )
-from open_webui.constants import ERROR_MESSAGES
-from open_webui.env import WEBUI_SESSION_COOKIE_SAME_SITE, WEBUI_SESSION_COOKIE_SECURE
-from open_webui.utils.misc import parse_duration
-from open_webui.utils.utils import get_password_hash, create_token
-from open_webui.utils.webhook import post_webhook
+from night_skies.constants import ERROR_MESSAGES
+from night_skies.env import WEBUI_SESSION_COOKIE_SAME_SITE, WEBUI_SESSION_COOKIE_SECURE
+from night_skies.utils.misc import parse_duration
+from night_skies.utils.utils import get_password_hash, create_token
+from night_skies.utils.webhook import post_webhook
 
 log = logging.getLogger(__name__)
 

@@ -9,7 +9,7 @@ from pydub import AudioSegment
 from pydub.silence import split_on_silence
 
 import requests
-from open_webui.config import (
+from night_skies.config import (
     AUDIO_STT_ENGINE,
     AUDIO_STT_MODEL,
     AUDIO_STT_OPENAI_API_BASE_URL,
@@ -31,8 +31,8 @@ from open_webui.config import (
     AppConfig,
 )
 
-from open_webui.constants import ERROR_MESSAGES
-from open_webui.env import (
+from night_skies.constants import ERROR_MESSAGES
+from night_skies.env import (
     ENV,
     SRC_LOG_LEVELS,
     DEVICE_TYPE,
@@ -43,7 +43,7 @@ from fastapi import Depends, FastAPI, File, HTTPException, Request, UploadFile, 
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
-from open_webui.utils.utils import get_admin_user, get_verified_user
+from night_skies.utils.utils import get_admin_user, get_verified_user
 
 # Constants
 MAX_FILE_SIZE_MB = 25
@@ -279,10 +279,10 @@ async def speech(request: Request, user=Depends(get_verified_user)):
         headers["Content-Type"] = "application/json"
 
         if ENABLE_FORWARD_USER_INFO_HEADERS:
-            headers["X-OpenWebUI-User-Name"] = user.name
-            headers["X-OpenWebUI-User-Id"] = user.id
-            headers["X-OpenWebUI-User-Email"] = user.email
-            headers["X-OpenWebUI-User-Role"] = user.role
+            headers["X-NightSkies-User-Name"] = user.name
+            headers["X-NightSkies-User-Id"] = user.id
+            headers["X-NightSkies-User-Email"] = user.email
+            headers["X-NightSkies-User-Role"] = user.role
 
         try:
             body = body.decode("utf-8")

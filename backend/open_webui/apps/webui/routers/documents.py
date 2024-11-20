@@ -1,16 +1,16 @@
 import json
 from typing import Optional
 
-from open_webui.apps.webui.models.documents import (
+from night_skies.apps.webui.models.documents import (
     DocumentForm,
     DocumentResponse,
     Documents,
     DocumentUpdateForm,
 )
-from open_webui.constants import ERROR_MESSAGES
+from night_skies.constants import ERROR_MESSAGES
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel
-from open_webui.utils.utils import get_admin_user, get_verified_user
+from night_skies.utils.utils import get_admin_user, get_verified_user
 
 router = APIRouter()
 

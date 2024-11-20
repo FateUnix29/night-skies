@@ -4,8 +4,8 @@ from chromadb.utils.batch_utils import create_batches
 
 from typing import Optional
 
-from open_webui.apps.retrieval.vector.main import VectorItem, SearchResult, GetResult
-from open_webui.config import (
+from night_skies.apps.retrieval.vector.main import VectorItem, SearchResult, GetResult
+from night_skies.config import (
     CHROMA_DATA_PATH,
     CHROMA_HTTP_HOST,
     CHROMA_HTTP_PORT,

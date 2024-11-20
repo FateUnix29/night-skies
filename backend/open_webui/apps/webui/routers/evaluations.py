@@ -2,16 +2,16 @@ from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, status, Request
 from pydantic import BaseModel
 
-from open_webui.apps.webui.models.users import Users, UserModel
-from open_webui.apps.webui.models.feedbacks import (
+from night_skies.apps.webui.models.users import Users, UserModel
+from night_skies.apps.webui.models.feedbacks import (
     FeedbackModel,
     FeedbackResponse,
     FeedbackForm,
     Feedbacks,
 )
 
-from open_webui.constants import ERROR_MESSAGES
-from open_webui.utils.utils import get_admin_user, get_verified_user
+from night_skies.constants import ERROR_MESSAGES
+from night_skies.utils.utils import get_admin_user, get_verified_user
 
 router = APIRouter()
 

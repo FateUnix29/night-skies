@@ -1,18 +1,18 @@
 from typing import Optional
 
-from open_webui.apps.webui.models.models import (
+from night_skies.apps.webui.models.models import (
     ModelForm,
     ModelModel,
     ModelResponse,
     ModelUserResponse,
     Models,
 )
-from open_webui.constants import ERROR_MESSAGES
+from night_skies.constants import ERROR_MESSAGES
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 
 
-from open_webui.utils.utils import get_admin_user, get_verified_user
-from open_webui.utils.access_control import has_access, has_permission
+from night_skies.utils.utils import get_admin_user, get_verified_user
+from night_skies.utils.access_control import has_access, has_permission
 
 
 router = APIRouter()

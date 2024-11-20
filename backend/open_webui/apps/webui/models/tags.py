@@ -3,10 +3,10 @@ import time
 import uuid
 from typing import Optional
 
-from open_webui.apps.webui.internal.db import Base, get_db
+from night_skies.apps.webui.internal.db import Base, get_db
 
 
-from open_webui.env import SRC_LOG_LEVELS
+from night_skies.env import SRC_LOG_LEVELS
 from pydantic import BaseModel, ConfigDict
 from sqlalchemy import BigInteger, Column, String, JSON, PrimaryKeyConstraint
 

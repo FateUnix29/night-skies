@@ -3,8 +3,8 @@ import logging
 from contextlib import contextmanager
 from typing import Any, Optional
 
-from open_webui.apps.webui.internal.wrappers import register_connection
-from open_webui.env import (
+from night_skies.apps.webui.internal.wrappers import register_connection
+from night_skies.env import (
     OPEN_WEBUI_DIR,
     DATABASE_URL,
     SRC_LOG_LEVELS,

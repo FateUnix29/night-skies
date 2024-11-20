@@ -1,8 +1,8 @@
 import logging
 
 import requests
-from open_webui.apps.retrieval.web.main import SearchResult
-from open_webui.env import SRC_LOG_LEVELS
+from night_skies.apps.retrieval.web.main import SearchResult
+from night_skies.env import SRC_LOG_LEVELS
 
 log = logging.getLogger(__name__)
 log.setLevel(SRC_LOG_LEVELS["RAG"])

@@ -18,8 +18,8 @@ from sqlalchemy.dialects.postgresql import JSONB, array
 from pgvector.sqlalchemy import Vector
 from sqlalchemy.ext.mutable import MutableDict
 
-from open_webui.apps.retrieval.vector.main import VectorItem, SearchResult, GetResult
-from open_webui.config import PGVECTOR_DB_URL
+from night_skies.apps.retrieval.vector.main import VectorItem, SearchResult, GetResult
+from night_skies.config import PGVECTOR_DB_URL
 
 VECTOR_LENGTH = 1536
 Base = declarative_base()
@@ -40,7 +40,7 @@ class PgvectorClient:
 
         # if no pgvector uri, use the existing database connection
         if not PGVECTOR_DB_URL:
-            from open_webui.apps.webui.internal.db import Session
+            from night_skies.apps.webui.internal.db import Session
 
             self.session = Session
         else:

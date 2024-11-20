@@ -2,10 +2,10 @@ import inspect
 import logging
 from typing import Awaitable, Callable, get_type_hints
 
-from open_webui.apps.webui.models.tools import Tools
-from open_webui.apps.webui.models.users import UserModel
-from open_webui.apps.webui.utils import load_tools_module_by_id
-from open_webui.utils.schemas import json_schema_to_model
+from night_skies.apps.webui.models.tools import Tools
+from night_skies.apps.webui.models.users import UserModel
+from night_skies.apps.webui.utils import load_tools_module_by_id
+from night_skies.utils.schemas import json_schema_to_model
 
 log = logging.getLogger(__name__)
 
