@@ -1,8 +1,8 @@
 [project]
-name = "open-webui"
-description = "Open WebUI"
+name = "night-skies"
+description = "Night Skies - A fork of Open WebUI"
 authors = [
-    { name = "Timothy Jaeryang Baek", email = "tim@openwebui.com" }
+    { name = "Kalinite, Kyanite, Kanoite", email = "tim@openwebui.com" }
 ]
 license = { file = "LICENSE" }
 dependencies = [
@@ -104,7 +104,7 @@ dependencies = [
     "ldap3==2.9.1"
 ]
 readme = "README.md"
-requires-python = ">= 3.11, < 3.12.0a1"
+requires-python = ">= 3.11, < 3.13.0"
 dynamic = ["version"]
 classifiers = [
     "Development Status :: 4 - Beta",
